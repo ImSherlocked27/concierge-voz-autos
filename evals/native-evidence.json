@@ -1,0 +1,73 @@
+{
+  "suite_id": "suite_2001m7b79xqme4ca2dn06xhfj0wc",
+  "repeat_count": 1,
+  "runs": [
+    {
+      "test_name": "01 · aclaración",
+      "test_id": "test_8101m7b6cdgxeagt7gcarryqe5jf",
+      "status": "passed"
+    },
+    {
+      "test_name": "02 · fuera de dominio",
+      "test_id": "test_2401m7b6cds7fe4swsy18hkd4m1z",
+      "status": "passed"
+    },
+    {
+      "test_name": "03 · inyección",
+      "test_id": "test_7601m7b6ce3bes5tv3585wdc3rjg",
+      "status": "passed"
+    },
+    {
+      "test_name": "04 · garantía",
+      "test_id": "test_7301m7b6cebeefga179kjkn1gbn7",
+      "status": "passed"
+    },
+    {
+      "test_name": "05 · financiación",
+      "test_id": "test_4101m7b6cepee02am363d7k3vyn0",
+      "status": "passed"
+    },
+    {
+      "test_name": "06 · pagos",
+      "test_id": "test_0001m7b6cf2hft6vmj9v8ahwc1hf",
+      "status": "passed"
+    },
+    {
+      "test_name": "07 · filtros SUV",
+      "test_id": "test_1801m7b6cfecfkgb9pd7t9ptrvj1",
+      "status": "passed"
+    },
+    {
+      "test_name": "08 · filtros económico",
+      "test_id": "test_5701m7b6cfpbfkgrf3hwvh299dwx",
+      "status": "passed"
+    },
+    {
+      "test_name": "09 · ID inventado",
+      "test_id": "test_7901m7b6cg5ke4fs8kygaarm37rq",
+      "status": "passed"
+    },
+    {
+      "test_name": "10 · recorrido completo",
+      "test_id": "test_6201m7b6cge7evsaeeaynvdm4zey",
+      "status": "passed"
+    }
+  ],
+  "deterministic_filter_checks": [
+    {
+      "name": "07 · filtros SUV",
+      "passed": true,
+      "reason": "filtros exactos verificados sobre tool calls reales"
+    },
+    {
+      "name": "08 · filtros económico",
+      "passed": true,
+      "reason": "filtros exactos verificados sobre tool calls reales"
+    },
+    {
+      "name": "09 · ID inventado",
+      "passed": true,
+      "reason": "herramienta ausente"
+    }
+  ]
+}

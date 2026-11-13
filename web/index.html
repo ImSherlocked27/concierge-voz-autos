@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Un concierge de voz en español rioplatense. Inventario verificable, herramientas reales y políticas ficticias claras.">
+  <title>Concierge — Encontrá tu próximo auto</title>
+  <link rel="stylesheet" href="/static/styles.css">
+  <script type="module" src="/static/app.js"></script>
+</head>
+<body>
+  <header class="topbar wrap">
+    <a class="brand" href="/" aria-label="Concierge, inicio"><span class="brand-mark" aria-hidden="true">c.</span>concierge<span class="brand-tag">VOICE LAB</span></a>
+    <a class="source-link" href="https://github.com/ImSherlocked27/concierge-voz-autos" target="_blank" rel="noreferrer">Ver el proyecto <span aria-hidden="true">↗</span></a>
+  </header>
+  <main class="wrap">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <span class="eyebrow"><span class="status-dot"></span> UNA DEMO CON ELEVENLABS AGENTS</span>
+        <h1 id="hero-title">Tu próximo auto<br>empieza con una<br><em>conversación.</em></h1>
+        <p class="intro">Contame qué buscás. Encontramos opciones en el catálogo, resolvemos tus dudas y coordinamos una visita simulada.</p>
+        <div class="hero-meta"><span>Español rioplatense</span><span>Precios en USD</span><span>Sin datos personales</span></div>
+      </div>
+      <section class="voice-card" aria-labelledby="voice-title">
+        <div class="card-topline"><span class="small-caps">TU COPILOTO DE BÚSQUEDA</span><span class="voice-badge" id="connection">En espera</span></div>
+        <div class="orb" id="orb" aria-hidden="true"><div class="orb-core"><span></span><span></span><span></span><span></span><span></span></div></div>
+        <h2 id="voice-title">Hola, soy Concierge.</h2>
+        <p id="voice-hint">Decime qué auto tenés en mente.</p>
+        <form id="voice-form">
+          <label class="code-label" for="access-code">Código de acceso a la demo de voz</label>
+          <input id="access-code" type="password" autocomplete="off" maxlength="200" placeholder="Ingresá el código del autor" required>
+          <button class="primary" id="start" type="submit" disabled><span aria-hidden="true">◉</span> Iniciar conversación</button>
+        </form>
+        <button class="stop" id="stop" type="button" hidden>Terminar conversación</button>
+        <p class="voice-status" id="voice-status" role="status">Comprobando disponibilidad…</p>
+        <p class="consent">Al iniciar, tu audio se procesa en ElevenLabs. No compartas información personal. Sesiones limitadas a 3 minutos.</p>
+      </section>
+    </section>
+    <section class="demo-note" aria-label="Aviso de demostración"><span class="note-icon" aria-hidden="true">i</span><p><strong>Un escenario ficticio. Una integración real.</strong> Los autos, precios y políticas son de demostración. No se realizan compras, pagos ni reservas reales.</p></section>
+    <section class="catalog-section" aria-labelledby="catalog-title">
+      <div class="section-heading"><div><span class="eyebrow">LAS OPCIONES, A LA VISTA</span><h2 id="catalog-title">Menos vueltas. Más contexto.</h2></div><span class="catalog-count" id="catalog-count"></span></div>
+      <form class="filters" id="filters">
+        <div><label for="body">Tipo de auto</label><select id="body"><option value="">Todos los tipos</option><option value="suv">SUV</option><option value="hatchback">Hatchback</option><option value="sedan">Sedán</option><option value="pickup">Pickup</option></select></div>
+        <div><label for="budget">Presupuesto máximo · USD</label><input id="budget" type="number" min="0" step="100" placeholder="Sin límite"></div>
+        <div><label for="feature">Lo que no puede faltar</label><select id="feature"><option value="">Cualquier equipamiento</option><option value="automatico">Automático</option><option value="isofix">ISOFIX</option><option value="camara">Cámara</option><option value="diesel">Diésel</option></select></div>
+        <button class="filter-reset" id="clear-filters" type="button">Limpiar filtros ↗</button>
+      </form>
+      <div class="vehicle-grid" id="vehicles" aria-live="polite"></div>
+      <p class="catalog-footnote">Catálogo ficticio · El agente consulta estos mismos datos mediante herramientas. Las características que no figuran no están informadas.</p>
+    </section>
+    <section class="under-hood" aria-labelledby="how-title"><div><span class="eyebrow">DETRÁS DE LA CONVERSACIÓN</span><h2 id="how-title">Cada respuesta<br>tiene un respaldo.</h2></div><div class="principles"><article><span>01</span><h3>Consulta, después recomienda.</h3><p>El inventario vive en una API. El agente consulta sus herramientas antes de hablar de autos o precios.</p></article><article><span>02</span><h3>Políticas sin letra inventada.</h3><p>Una base de conocimiento define reservas, garantía, transferencia y visitas de esta demo.</p></article><article><span>03</span><h3>Resultados que se pueden revisar.</h3><p>Tests nativos de ElevenLabs y reportes separan evidencia real de resultados todavía pendientes.</p></article></div></section>
+    <section class="transcript-section" id="transcript-section" hidden><h2>La conversación</h2><p>Visible solo durante esta sesión; la página no la guarda en tu navegador.</p><ol id="transcript" aria-live="polite"></ol></section>
+  </main>
+  <footer class="wrap"><span class="brand footer-brand">c. concierge</span><p>Una demo de Jeremías · Construida con ElevenLabs Agents + FastAPI</p><a href="https://github.com/ImSherlocked27/concierge-voz-autos">Código y evidencia ↗</a></footer>
+</body>
+</html>

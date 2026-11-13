@@ -1,0 +1,19 @@
+{
+  "type": "webhook",
+  "name": "search_vehicles",
+  "description": "Consultá el inventario ficticio antes de recomendar. Devuelve hasta tres autos reales del catálogo JSON, precios en USD. Cero coincidencias no autoriza a inventar. Usá max_price, body y feature solo si el usuario los indicó.",
+  "response_timeout_secs": 10,
+  "api_schema": {
+    "url": "{{API_BASE}}/vehicles",
+    "method": "GET",
+    "request_headers": {"X-Tools-Secret": {"secret_id": "{{TOOLS_SECRET_ID}}"}},
+    "query_params_schema": {
+      "properties": {
+        "max_price": {"type":"number","description":"Presupuesto máximo en dólares estadounidenses, nunca pesos. No aumentarlo sin permiso."},
+        "body": {"type":"string","enum":["sedan","suv","hatchback","pickup"],"description":"Carrocería que pidió el usuario."},
+        "feature": {"type":"string","description":"Una característica solicitada. Valores del catálogo: automatico, manual, camara, isofix, control de estabilidad, diesel, doble cabina."}
+      },
+      "required": []
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "type": "webhook",
+  "name": "schedule_visit",
+  "description": "Agendá una visita SIMULADA únicamente después de repetir vehículo, fecha y hora y recibir confirmación explícita del usuario. No requiere datos personales. No confirma si la API falla. Horarios lunes a viernes, 09 a 18 Argentina, turnos cada 30 minutos, próximos 30 días.",
+  "response_timeout_secs": 10,
+  "api_schema": {
+    "url": "{{API_BASE}}/visits",
+    "method": "POST",
+    "request_headers": {"X-Tools-Secret": {"secret_id": "{{TOOLS_SECRET_ID}}"}},
+    "request_body_schema": {
+      "type": "object",
+      "required": ["vehicle_id", "starts_at", "confirmed", "request_id"],
+      "properties": {
+        "vehicle_id": {"type":"string","description":"ID consultado previamente en el inventario."},
+        "starts_at": {"type":"string","description":"Fecha y hora exactas confirmadas, ISO 8601 con zona -03:00, por ejemplo 2027-01-11T10:30:00-03:00. Nunca usar una fecha del ejemplo si no la pidió el usuario."},
+        "confirmed": {"type":"boolean","description":"true solo si el usuario confirmó explícitamente auto, fecha y hora después de escucharlos."},
+        "request_id": {"type":"string","description":"Identificador aleatorio único de al menos 8 caracteres alfanuméricos, guiones o guiones bajos. Reutilizar solo al reintentar el mismo turno. Sin datos personales."}
+      }
+    }
+  }
+}

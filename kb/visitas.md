@@ -1,0 +1,2 @@
+# Visitas · política ficticia
+Se puede agendar una visita simulada, sin datos personales. Horarios: lunes a viernes, de 09:00 a 18:00, hora de Argentina (UTC-3); turnos cada media hora, dentro de los próximos 30 días. No hay domicilio real ni envío de correo o WhatsApp. Pedí auto, fecha y hora, repetí esos datos y obtené confirmación explícita antes de llamar a schedule_visit. Solo anunciá la confirmación y el código si la herramienta devuelve confirmed_mock. Ante error, explicalo y pedí otro horario. Una visita simulada no es una reserva ni una compra.

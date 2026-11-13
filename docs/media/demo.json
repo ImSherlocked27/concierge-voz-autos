@@ -1,0 +1,10 @@
+{
+  "conversation_id": "conv_7601m7b7ac4nfk6asa15z9qwar55",
+  "synthetic_user": true,
+  "microphone_used": false,
+  "edits": "Sustained near-silence shortened to 400 ms. Playback speed disclosed on every frame; no generated agent replies.",
+  "playback_speed": 1.0851,
+  "duration_seconds": 88.0,
+  "audio_source": "Real ElevenLabs Agents WebSocket session",
+  "caption_source": "SDK ASR + agent response callbacks"
+}

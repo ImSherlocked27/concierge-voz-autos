@@ -1,0 +1,12 @@
+{
+  "type": "webhook",
+  "name": "get_vehicle",
+  "description": "Consultá detalles de un ID devuelto antes por search_vehicles. No inventes IDs. Un 404 significa que no está en el catálogo.",
+  "response_timeout_secs": 10,
+  "api_schema": {
+    "url": "{{API_BASE}}/vehicles/{vehicle_id}",
+    "method": "GET",
+    "request_headers": {"X-Tools-Secret": {"secret_id": "{{TOOLS_SECRET_ID}}"}},
+    "path_params_schema": {"vehicle_id": {"type":"string","description":"ID exacto recibido de search_vehicles en esta conversación."}}
+  }
+}

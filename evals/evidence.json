@@ -1,0 +1,476 @@
+[
+  {
+    "conversation_id": "conv_0001m7b6v6wkf2zrr29x7snzhnch",
+    "metadata": {
+      "text_only": false,
+      "start_time_unix_secs": 1794598869
+    },
+    "analysis": {
+      "call_successful": "failure",
+      "evaluation_criteria_results": {
+        "grounding": {
+          "result": "failure"
+        },
+        "tools": {
+          "result": "success"
+        },
+        "resolution": {
+          "result": "success"
+        },
+        "policies": {
+          "result": "success"
+        }
+      }
+    },
+    "transcript": [
+      {
+        "role": "agent",
+        "source_medium": null,
+        "conversation_turn_metrics": {
+          "metrics": {
+            "convai_ttf_audio_since_silence": {
+              "elapsed_time": 0.1012117070495151
+            }
+          }
+        },
+        "tool_calls": []
+      },
+      {
+        "role": "user",
+        "source_medium": "audio",
+        "conversation_turn_metrics": {
+          "metrics": {}
+        },
+        "tool_calls": []
+      },
+      {
+        "role": "agent",
+        "source_medium": null,
+        "conversation_turn_metrics": {
+          "metrics": {}
+        },
+        "tool_calls": [
+          {
+            "tool_name": "search_vehicles"
+          }
+        ]
+      },
+      {
+        "role": "agent",
+        "source_medium": null,
+        "conversation_turn_metrics": {
+          "metrics": {}
+        },
+        "tool_calls": []
+      },
+      {
+        "role": "agent",
+        "source_medium": null,
+        "conversation_turn_metrics": {
+          "metrics": {
+            "convai_ttf_audio_since_silence": {
+              "elapsed_time": 2.732874636013992
+            }
+          }
+        },
+        "tool_calls": []
+      },
+      {
+        "role": "user",
+        "source_medium": "audio",
+        "conversation_turn_metrics": {
+          "metrics": {}
+        },
+        "tool_calls": []
+      },
+      {
+        "role": "agent",
+        "source_medium": null,
+        "conversation_turn_metrics": {
+          "metrics": {
+            "convai_ttf_audio_since_silence": {
+              "elapsed_time": 1.1937985960128716
+            }
+          }
+        },
+        "tool_calls": []
+      },
+      {
+        "role": "user",
+        "source_medium": "audio",
+        "conversation_turn_metrics": {
+          "metrics": {}
+        },
+        "tool_calls": []
+      },
+      {
+        "role": "agent",
+        "source_medium": null,
+        "conversation_turn_metrics": {
+          "metrics": {
+            "convai_ttf_audio_since_silence": {
+              "elapsed_time": 1.8295559610109775
+            }
+          }
+        },
+        "tool_calls": []
+      },
+      {
+        "role": "user",
+        "source_medium": "audio",
+        "conversation_turn_metrics": {
+          "metrics": {}
+        },
+        "tool_calls": []
+      },
+      {
+        "role": "agent",
+        "source_medium": null,
+        "conversation_turn_metrics": {
+          "metrics": {}
+        },
+        "tool_calls": [
+          {
+            "tool_name": "schedule_visit"
+          }
+        ]
+      },
+      {
+        "role": "agent",
+        "source_medium": null,
+        "conversation_turn_metrics": {
+          "metrics": {}
+        },
+        "tool_calls": []
+      },
+      {
+        "role": "agent",
+        "source_medium": null,
+        "conversation_turn_metrics": {
+          "metrics": {
+            "convai_ttf_audio_since_silence": {
+              "elapsed_time": 3.5392925320053474
+            }
+          }
+        },
+        "tool_calls": []
+      }
+    ]
+  },
+  {
+    "conversation_id": "conv_0401m7b73gs8fb2b8m3p72xvwr7h",
+    "metadata": {
+      "text_only": false,
+      "start_time_unix_secs": 1794599142
+    },
+    "analysis": {
+      "call_successful": "success",
+      "evaluation_criteria_results": {
+        "grounding": {
+          "result": "success"
+        },
+        "tools": {
+          "result": "success"
+        },
+        "resolution": {
+          "result": "success"
+        },
+        "policies": {
+          "result": "success"
+        }
+      }
+    },
+    "transcript": [
+      {
+        "role": "agent",
+        "source_medium": null,
+        "conversation_turn_metrics": {
+          "metrics": {
+            "convai_ttf_audio_since_silence": {
+              "elapsed_time": 0.09580910857766867
+            }
+          }
+        },
+        "tool_calls": []
+      },
+      {
+        "role": "user",
+        "source_medium": "audio",
+        "conversation_turn_metrics": {
+          "metrics": {}
+        },
+        "tool_calls": []
+      },
+      {
+        "role": "agent",
+        "source_medium": null,
+        "conversation_turn_metrics": {
+          "metrics": {}
+        },
+        "tool_calls": [
+          {
+            "tool_name": "search_vehicles"
+          }
+        ]
+      },
+      {
+        "role": "agent",
+        "source_medium": null,
+        "conversation_turn_metrics": {
+          "metrics": {}
+        },
+        "tool_calls": []
+      },
+      {
+        "role": "agent",
+        "source_medium": null,
+        "conversation_turn_metrics": {
+          "metrics": {
+            "convai_ttf_audio_since_silence": {
+              "elapsed_time": 2.362276473715901
+            }
+          }
+        },
+        "tool_calls": []
+      },
+      {
+        "role": "user",
+        "source_medium": "audio",
+        "conversation_turn_metrics": {
+          "metrics": {}
+        },
+        "tool_calls": []
+      },
+      {
+        "role": "agent",
+        "source_medium": null,
+        "conversation_turn_metrics": {
+          "metrics": {
+            "convai_ttf_audio_since_silence": {
+              "elapsed_time": 1.215723689444363
+            }
+          }
+        },
+        "tool_calls": []
+      },
+      {
+        "role": "user",
+        "source_medium": "audio",
+        "conversation_turn_metrics": {
+          "metrics": {}
+        },
+        "tool_calls": []
+      },
+      {
+        "role": "agent",
+        "source_medium": null,
+        "conversation_turn_metrics": {
+          "metrics": {
+            "convai_ttf_audio_since_silence": {
+              "elapsed_time": 1.6985790435373782
+            }
+          }
+        },
+        "tool_calls": []
+      },
+      {
+        "role": "user",
+        "source_medium": "audio",
+        "conversation_turn_metrics": {
+          "metrics": {}
+        },
+        "tool_calls": []
+      },
+      {
+        "role": "agent",
+        "source_medium": null,
+        "conversation_turn_metrics": {
+          "metrics": {}
+        },
+        "tool_calls": [
+          {
+            "tool_name": "schedule_visit"
+          }
+        ]
+      },
+      {
+        "role": "agent",
+        "source_medium": null,
+        "conversation_turn_metrics": {
+          "metrics": {}
+        },
+        "tool_calls": []
+      },
+      {
+        "role": "agent",
+        "source_medium": null,
+        "conversation_turn_metrics": {
+          "metrics": {
+            "convai_ttf_audio_since_silence": {
+              "elapsed_time": 2.6392926116362214
+            }
+          }
+        },
+        "tool_calls": []
+      }
+    ]
+  },
+  {
+    "conversation_id": "conv_7601m7b7ac4nfk6asa15z9qwar55",
+    "metadata": {
+      "text_only": false,
+      "start_time_unix_secs": 1794599366
+    },
+    "analysis": {
+      "call_successful": "success",
+      "evaluation_criteria_results": {
+        "grounding": {
+          "result": "success"
+        },
+        "tools": {
+          "result": "success"
+        },
+        "resolution": {
+          "result": "success"
+        },
+        "policies": {
+          "result": "success"
+        }
+      }
+    },
+    "transcript": [
+      {
+        "role": "agent",
+        "source_medium": null,
+        "conversation_turn_metrics": {
+          "metrics": {
+            "convai_ttf_audio_since_silence": {
+              "elapsed_time": 0.11414595699170604
+            }
+          }
+        },
+        "tool_calls": []
+      },
+      {
+        "role": "user",
+        "source_medium": "audio",
+        "conversation_turn_metrics": {
+          "metrics": {}
+        },
+        "tool_calls": []
+      },
+      {
+        "role": "agent",
+        "source_medium": null,
+        "conversation_turn_metrics": {
+          "metrics": {}
+        },
+        "tool_calls": [
+          {
+            "tool_name": "search_vehicles"
+          }
+        ]
+      },
+      {
+        "role": "agent",
+        "source_medium": null,
+        "conversation_turn_metrics": {
+          "metrics": {}
+        },
+        "tool_calls": []
+      },
+      {
+        "role": "agent",
+        "source_medium": null,
+        "conversation_turn_metrics": {
+          "metrics": {
+            "convai_ttf_audio_since_silence": {
+              "elapsed_time": 2.2896919210059568
+            }
+          }
+        },
+        "tool_calls": []
+      },
+      {
+        "role": "user",
+        "source_medium": "audio",
+        "conversation_turn_metrics": {
+          "metrics": {}
+        },
+        "tool_calls": []
+      },
+      {
+        "role": "agent",
+        "source_medium": null,
+        "conversation_turn_metrics": {
+          "metrics": {
+            "convai_ttf_audio_since_silence": {
+              "elapsed_time": 1.3777184450034983
+            }
+          }
+        },
+        "tool_calls": []
+      },
+      {
+        "role": "user",
+        "source_medium": "audio",
+        "conversation_turn_metrics": {
+          "metrics": {}
+        },
+        "tool_calls": []
+      },
+      {
+        "role": "agent",
+        "source_medium": null,
+        "conversation_turn_metrics": {
+          "metrics": {
+            "convai_ttf_audio_since_silence": {
+              "elapsed_time": 1.1507510390230453
+            }
+          }
+        },
+        "tool_calls": []
+      },
+      {
+        "role": "user",
+        "source_medium": "audio",
+        "conversation_turn_metrics": {
+          "metrics": {}
+        },
+        "tool_calls": []
+      },
+      {
+        "role": "agent",
+        "source_medium": null,
+        "conversation_turn_metrics": {
+          "metrics": {}
+        },
+        "tool_calls": [
+          {
+            "tool_name": "schedule_visit"
+          }
+        ]
+      },
+      {
+        "role": "agent",
+        "source_medium": null,
+        "conversation_turn_metrics": {
+          "metrics": {}
+        },
+        "tool_calls": []
+      },
+      {
+        "role": "agent",
+        "source_medium": null,
+        "conversation_turn_metrics": {
+          "metrics": {
+            "convai_ttf_audio_since_silence": {
+              "elapsed_time": 3.198970047038514
+            }
+          }
+        },
+        "tool_calls": []
+      }
+    ]
+  }
+]

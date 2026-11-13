@@ -1,0 +1,12 @@
+[
+  {"id":"auto-01","brand":"Toyota","model":"Corolla XEI","year":2019,"price_usd":18500,"body":"sedan","km":68000,"features":["automatico","camara","isofix"]},
+  {"id":"auto-02","brand":"Honda","model":"CR-V LX","year":2017,"price_usd":21800,"body":"suv","km":92000,"features":["automatico","isofix","control de estabilidad"]},
+  {"id":"auto-03","brand":"Renault","model":"Duster Intens","year":2020,"price_usd":17200,"body":"suv","km":55000,"features":["manual","isofix","camara"]},
+  {"id":"auto-04","brand":"Volkswagen","model":"Polo Comfortline","year":2021,"price_usd":16400,"body":"hatchback","km":41000,"features":["manual","isofix","control de estabilidad"]},
+  {"id":"auto-05","brand":"Ford","model":"Focus SE","year":2018,"price_usd":14900,"body":"hatchback","km":79000,"features":["manual","isofix","control de estabilidad"]},
+  {"id":"auto-06","brand":"Chevrolet","model":"Onix LTZ","year":2022,"price_usd":17800,"body":"hatchback","km":29000,"features":["automatico","camara","isofix"]},
+  {"id":"auto-07","brand":"Nissan","model":"Kicks Advance","year":2020,"price_usd":20900,"body":"suv","km":57000,"features":["automatico","camara","isofix"]},
+  {"id":"auto-08","brand":"Fiat","model":"Cronos Drive","year":2021,"price_usd":13900,"body":"sedan","km":46000,"features":["manual","isofix"]},
+  {"id":"auto-09","brand":"Peugeot","model":"208 Allure","year":2023,"price_usd":19400,"body":"hatchback","km":18000,"features":["manual","camara","isofix"]},
+  {"id":"auto-10","brand":"Toyota","model":"Hilux DX","year":2018,"price_usd":27800,"body":"pickup","km":118000,"features":["manual","diesel","doble cabina"]}
+]
