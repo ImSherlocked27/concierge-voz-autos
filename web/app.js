@@ -2,10 +2,22 @@ const $ = (id) => document.getElementById(id);
 const format = new Intl.NumberFormat('es-AR');
 const labels = { automatico: 'Automático', manual: 'Manual', camara: 'Cámara', isofix: 'ISOFIX', diesel: 'Diésel' };
 let catalog = [];
+let catalogReady = false;
 let conversation = null;
 let timer = null;
 let connecting = false;
 let duration = 180;
+let voiceAvailable = false;
+
+async function requestJSON(url, options = {}) {
+  const response = await fetch(url, { ...options, signal: AbortSignal.timeout(25000) });
+  if (!response.ok) {
+    const error = new Error('No pudimos completar la solicitud.');
+    error.status = response.status;
+    throw error;
+  }
+  return response.json();
+}
 
 function element(tag, className, text) {
   const node = document.createElement(tag);
@@ -38,6 +50,7 @@ function carArt(body) {
 }
 
 function renderCatalog() {
+  if (!catalogReady) return;
   const body = $('body').value;
   const rawBudget = $('budget').value;
   const budget = rawBudget === '' ? Infinity : Number(rawBudget);
@@ -76,18 +89,21 @@ function disconnected() {
   $('connection').textContent = 'En espera';
   $('voice-form').hidden = false;
   $('stop').hidden = true;
-  $('start').disabled = false;
+  $('start').disabled = !voiceAvailable;
 }
 
 async function stop() {
-  if (conversation) await conversation.endSession();
-  disconnected();
-  status('Conversación terminada. Gracias por probar la demo.');
+  try {
+    if (conversation) await conversation.endSession();
+  } finally {
+    disconnected();
+    status('Conversación terminada. Gracias por probar la demo.');
+  }
 }
 
 $('voice-form').addEventListener('submit', async (event) => {
   event.preventDefault();
-  if (connecting || conversation) return;
+  if (!voiceAvailable || connecting || conversation) return;
   connecting = true;
   $('start').disabled = true;
   status('Preparando el micrófono y conectando con ElevenLabs…');
@@ -96,9 +112,7 @@ $('voice-form').addEventListener('submit', async (event) => {
     const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
     stream.getTracks().forEach((track) => track.stop());
     const { Conversation } = await import('https://esm.sh/@elevenlabs/client@1.36.1');
-    const response = await fetch('/api/session', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ access_code: $('access-code').value }) });
-    const data = await response.json();
-    if (!response.ok) throw new Error(response.status === 401 ? 'El código de acceso no es válido.' : response.status === 429 ? 'Llegamos al límite diario de voz. Podés explorar el catálogo.' : 'No se pudo iniciar la voz. Probá nuevamente más tarde.');
+    const data = await requestJSON('/api/session', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ access_code: $('access-code').value }) });
     $('transcript').replaceChildren();
     $('transcript-section').hidden = false;
     conversation = await Conversation.startSession({
@@ -124,7 +138,13 @@ $('voice-form').addEventListener('submit', async (event) => {
     timer = setTimeout(() => stop().catch(() => disconnected()), duration * 1000);
   } catch (error) {
     disconnected();
-    status(error.name === 'NotAllowedError' ? 'Necesitamos permiso para usar el micrófono. Podés seguir explorando el catálogo.' : error.message || 'No se pudo conectar con ElevenLabs.', true);
+    const message = error.status === 401 ? 'El código de acceso no es válido.'
+      : error.status === 429 ? 'Llegamos al límite diario de voz. Podés explorar el catálogo.'
+      : error.name === 'NotAllowedError' ? 'Necesitamos permiso para usar el micrófono. Podés seguir explorando el catálogo.'
+      : error.name === 'NotFoundError' ? 'No encontramos un micrófono conectado. Podés seguir explorando el catálogo.'
+      : error.name === 'TimeoutError' ? 'La conexión tardó demasiado. Podés volver a intentar.'
+      : 'No se pudo conectar con ElevenLabs. Probá nuevamente más tarde.';
+    status(message, true);
   }
 });
 
@@ -133,17 +153,34 @@ $('filters').addEventListener('submit', (event) => event.preventDefault());
 $('filters').addEventListener('input', renderCatalog);
 $('clear-filters').addEventListener('click', () => { $('filters').reset(); renderCatalog(); });
 
-try {
-  const [catalogResponse, configResponse] = await Promise.all([fetch('/api/catalog'), fetch('/api/config')]);
-  if (!catalogResponse.ok || !configResponse.ok) throw new Error('No se pudo cargar la demo.');
-  catalog = (await catalogResponse.json()).vehicles;
-  const config = await configResponse.json();
-  duration = config.max_duration_seconds;
-  renderCatalog();
-  $('start').disabled = !config.voice_enabled;
-  if (config.voice_enabled) status('Ingresá el código del autor para probar la voz.');
-  else status('La voz está pendiente de configuración. El catálogo ya se puede explorar.');
-} catch (error) {
-  status(error.message, true);
-  $('vehicles').append(element('p', 'empty', 'No pudimos cargar el catálogo. Recargá la página para intentar de nuevo.'));
+async function loadCatalog() {
+  $('catalog-count').textContent = 'Cargando catálogo…';
+  try {
+    catalog = (await requestJSON('/api/catalog')).vehicles;
+    catalogReady = true;
+    renderCatalog();
+  } catch {
+    $('catalog-count').textContent = 'Catálogo no disponible';
+    const retry = element('button', 'filter-reset', 'Volver a cargar el catálogo');
+    retry.type = 'button';
+    retry.addEventListener('click', () => { retry.disabled = true; loadCatalog(); });
+    $('vehicles').replaceChildren(element('p', 'empty', 'No pudimos cargar los autos. Podés volver a intentar.'), retry);
+  }
 }
+
+async function loadVoice() {
+  $('start').disabled = true;
+  try {
+    const config = await requestJSON('/api/config');
+    duration = config.max_duration_seconds;
+    voiceAvailable = Boolean(config.voice_enabled && navigator.mediaDevices?.getUserMedia);
+    $('start').disabled = !voiceAvailable;
+    if (!config.voice_enabled) status('La voz está pendiente de configuración. Podés explorar el catálogo.');
+    else if (!voiceAvailable) status('Para usar el micrófono, abrí la demo por HTTPS o localhost en un navegador compatible.');
+    else status('Ingresá el código del autor para probar la voz.');
+  } catch {
+    status('No pudimos comprobar la voz. Recargá la página para reintentar; el catálogo funciona por separado.', true);
+  }
+}
+
+await Promise.all([loadCatalog(), loadVoice()]);

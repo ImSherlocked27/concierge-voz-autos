@@ -19,3 +19,4 @@ jobs:
       - run: python -m pytest -q
       - run: python -m scripts.configure
       - run: node --input-type=module --check < web/app.js
+      - run: node --test tests/web.test.cjs

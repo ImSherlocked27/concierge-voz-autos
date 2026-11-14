@@ -1,14 +1,18 @@
 # Concierge · voz para encontrar tu próximo auto
 
-Un agente de voz en español rioplatense para un marketplace de autos usados **100% ficticio**, construido con **ElevenLabs Agents + FastAPI**. Consulta un inventario, responde políticas desde una knowledge base y agenda visitas simuladas con confirmación explícita.
+Construí Concierge para explorar una pregunta concreta: ¿puedo buscar un auto conversando, sin perder la precisión de los filtros de un catálogo?
 
-La demo muestra herramientas reales y evidencia verificable: no usa inventario de un empleador, no inventa experiencia comercial y no atribuye métricas de otros proyectos.
+Cuando busco un usado, no pienso primero en campos de un formulario. Pienso en lo que necesito: «Tengo hasta 15.000 dólares, quiero un automático y necesito ISOFIX». Quise llevar esa forma de buscar a una demo de voz, con una condición: que el agente consulte los datos antes de recomendar y reconozca cuando no encuentra una opción.
+
+Mi solución combina **ElevenLabs Agents + FastAPI** con un inventario de diez autos **100% ficticios**. El agente consulta precio y equipamiento, responde sobre cuatro políticas de ejemplo y puede agendar una visita simulada después de pedir confirmación. Escribí las instrucciones con voseo; usé la voz multilingüe Sarah, sin atribuirle un acento argentino.
+
+Armé este proyecto como una demo de portfolio. Los autos y las políticas los creé para el ejercicio; no son datos de clientes ni de una empresa. En [cómo lo pensé](docs/case-study.md) cuento las decisiones, lo que probé y lo que todavía falta.
 
 [![Ver la demo con audio real](docs/media/demo.jpg)](docs/media/demo.mp4)
 
 [Video con audio y subtítulos](docs/media/demo.mp4). El comprador usa voz sintética; las respuestas provienen de una sesión real de ElevenLabs Agents. Se recortan pausas y se indica la velocidad de reproducción en pantalla para mantener el video por debajo de 90 segundos, sin inventar respuestas. No se usa un micrófono personal. Ver [procedencia del video](docs/media/demo.json).
 
-## Probar en un minuto, sin cuenta de ElevenLabs
+## Probar localmente, sin cuenta de ElevenLabs
 
 Requiere Python 3.11+; probado con Python 3.13. Los siguientes comandos usan una terminal compatible con tu sistema:
 
@@ -57,7 +61,7 @@ flowchart LR
 
    Seguí las instrucciones que imprime. El onboarding guarda la clave localmente. `onboard check --env-path .env` verifica la integración sin imprimirla. Las pruebas de audio consumen créditos.
 
-3. Seleccioná una voz **ya agregada a tu cuenta**. Recomendación para el objetivo lingüístico: Carolina, Rioplatense, Argentina (`0LdgqX7HWxqwl7GGMBS4`). La clave de onboarding puede no tener `voices_write`; agregarla desde Voice Library resuelve ese paso sin ampliar permisos. La voz de respaldo Sarah habla español con el modelo multilingüe, pero no se presenta como una voz rioplatense.
+3. Seleccioná una voz **ya agregada a tu cuenta**. Para esta demo usé Sarah (`EXAVITQu4vr4xnSDxMaL`), que habla español con el modelo multilingüe. El voseo viene de las instrucciones del agente; no presento la voz como rioplatense ni necesito ampliar permisos para agregar otra.
 4. Publicá el backend en un host que ejecute Python o Docker, con HTTPS y almacenamiento persistente. Para una prueba temporal también sirve `cloudflared tunnel --url http://localhost:8000`. Una URL temporal deja de funcionar al cerrar el proceso y **no es un despliegue permanente**.
 5. Prepará los ajustes locales sin mostrar secretos:
 
